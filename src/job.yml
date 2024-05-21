@@ -1,14 +1,14 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 code: model
 command: >-
-  python train.py
+  python train-simplified.py
   --training_data ${{inputs.training_data}}
   --reg_rate ${{inputs.reg_rate}}
 inputs:
   training_data: 
     type: uri_folder 
     path: ./experimentation/data
-  reg_rate: .03
+  reg_rate: .7
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
 compute: daniel-DS11
 experiment_name: train-diabetes-classification
