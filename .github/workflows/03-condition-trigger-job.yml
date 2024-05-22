@@ -11,8 +11,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@main
 
     - name: Placeholder
       run: |
-        echo "Will add code checks here in next challenge"
+        echo "Will add code checks here in next challenge by using checkout latest version"
+    
+    
