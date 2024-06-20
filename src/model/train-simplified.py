@@ -34,8 +34,10 @@ def split_data(df):
     return train_test_split(X, y, test_size=0.30, random_state=0)
 
 def train_model(reg_rate, X_train, X_test, y_train, y_test):
-    model = LogisticRegression(C=1/reg_rate, solver="liblinear").fit(X_train, y_train)
-    return model
+    with mlflow.start_run():
+        mlflow.log_param("reg_rate", reg_rate)
+        model = LogisticRegression(C=1/reg_rate, solver="liblinear").fit(X_train, y_train)
+        return model
 
 def parse_args():
     parser = argparse.ArgumentParser()
